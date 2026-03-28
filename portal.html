@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LNVX Portal — Lanevox Consulting Group</title>
+<meta name="description" content="The Lanevox client portal. Access your reports, invoices and digital team.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:#0A0A0B;
+  color:#EDE8DE;
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:68px;padding:0 64px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(10,10,11,0.85);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.nav-logo{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-decoration:none}
+.nav-lnvx-row{display:flex;align-items:flex-end;gap:5px;line-height:1}
+.nav-lnvx{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;letter-spacing:0.12em;color:#EDE8DE;line-height:1}
+.nav-sub{font-family:'DM Sans',sans-serif;font-weight:400;font-size:9px;text-transform:uppercase;letter-spacing:0.3em;color:rgba(237,232,222,0.4)}
+.nav-back{font-family:'DM Sans',sans-serif;font-weight:300;font-size:12px;letter-spacing:0.05em;color:rgba(237,232,222,0.45);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:#EDE8DE}
+
+/* ── HERO ── */
+.hero{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:120px 24px 80px;text-align:center;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 800px 500px at 50% 40%,rgba(27,58,107,0.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  font-family:'DM Sans',sans-serif;font-weight:300;font-size:10px;
+  letter-spacing:4px;text-transform:uppercase;color:rgba(237,232,222,0.35);
+  margin-bottom:40px;
+}
+.logo-lockup{display:flex;flex-direction:column;align-items:center;margin-bottom:48px}
+.logo-main{display:flex;align-items:flex-end;gap:12px;line-height:1}
+.logo-lnvx{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:clamp(64px,12vw,120px);letter-spacing:0.12em;
+  color:#EDE8DE;line-height:1;
+}
+.logo-star{flex-shrink:0}
+.logo-tagline{
+  font-family:'DM Sans',sans-serif;font-weight:400;font-size:clamp(10px,1.5vw,13px);
+  text-transform:uppercase;letter-spacing:0.36em;
+  color:rgba(237,232,222,0.4);margin-top:18px;
+}
+.divider{width:1px;height:40px;background:rgba(237,232,222,0.1);margin:0 auto 40px}
+.hero-headline{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(20px,3vw,32px);font-weight:400;
+  color:rgba(237,232,222,0.75);line-height:1.4;
+  max-width:520px;margin-bottom:14px;
+}
+.hero-sub{
+  font-family:'DM Sans',sans-serif;font-weight:300;font-size:14px;
+  color:rgba(237,232,222,0.4);line-height:1.7;
+  max-width:400px;margin-bottom:48px;
+}
+.btn-portal{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'DM Sans',sans-serif;font-weight:500;font-size:11px;
+  letter-spacing:2px;text-transform:uppercase;
+  color:#EDE8DE;background:#1B3A6B;
+  padding:16px 40px;border-radius:8px;text-decoration:none;
+  transition:background .25s ease,transform .25s ease;
+  margin-bottom:16px;
+}
+.btn-portal:hover{background:#2a5099;transform:translateY(-2px)}
+.btn-note{font-family:'DM Sans',sans-serif;font-weight:300;font-size:11px;color:rgba(237,232,222,0.25);letter-spacing:0.03em}
+
+/* ── FEATURES ── */
+.features{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(255,255,255,0.06);
+  border-top:1px solid rgba(255,255,255,0.06);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  max-width:800px;margin:64px auto 0;width:100%;
+}
+.feat{background:#0A0A0B;padding:28px 32px;text-align:left}
+.feat-icon{font-size:16px;margin-bottom:12px;opacity:.6}
+.feat-title{font-family:'DM Sans',sans-serif;font-weight:400;font-size:12px;color:#EDE8DE;margin-bottom:6px;letter-spacing:0.02em}
+.feat-desc{font-family:'DM Sans',sans-serif;font-weight:300;font-size:11px;color:rgba(237,232,222,0.35);line-height:1.6}
+
+/* ── FOOTER ── */
+footer{
+  padding:24px 64px;
+  border-top:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-copy{font-family:'DM Sans',sans-serif;font-weight:300;font-size:11px;color:rgba(237,232,222,0.2);letter-spacing:0.03em}
+.footer-link{font-family:'DM Sans',sans-serif;font-weight:300;font-size:11px;color:rgba(237,232,222,0.3);text-decoration:none;transition:color .2s}
+.footer-link:hover{color:rgba(237,232,222,0.7)}
+
+@media(max-width:768px){
+  nav{padding:0 24px}
+  .features{grid-template-columns:1fr}
+  footer{padding:20px 24px;flex-direction:column;gap:10px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-lnvx-row">
+      <span class="nav-lnvx">LNVX</span>
+      <svg class="nav-star" width="14" height="14" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:3px">
+        <polygon points="50.00,4.00 57.52,29.33 79.57,14.76 69.05,39.00 95.30,42.01 71.67,53.82 89.84,73.00 64.14,66.85 65.73,93.23 50.00,72.00 34.27,93.23 35.86,66.85 10.16,73.00 28.33,53.82 4.70,42.01 30.95,39.00 20.43,14.76 42.48,29.33" fill="none" stroke="rgba(237,232,222,0.5)" stroke-width="4.5" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="nav-sub">Consulting Group</span>
+  </a>
+  <a href="index.html" class="nav-back">← Back to website</a>
+</nav>
+
+<main class="hero">
+  <p class="hero-eyebrow">Client Access</p>
+
+  <div class="logo-lockup">
+    <div class="logo-main">
+      <span class="logo-lnvx">LNVX</span>
+      <svg class="logo-star" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+        style="width:clamp(28px,5vw,54px);height:clamp(28px,5vw,54px);margin-bottom:clamp(8px,1.5vw,18px)">
+        <polygon points="50.00,4.00 57.52,29.33 79.57,14.76 69.05,39.00 95.30,42.01 71.67,53.82 89.84,73.00 64.14,66.85 65.73,93.23 50.00,72.00 34.27,93.23 35.86,66.85 10.16,73.00 28.33,53.82 4.70,42.01 30.95,39.00 20.43,14.76 42.48,29.33" fill="none" stroke="rgba(237,232,222,0.6)" stroke-width="4.5" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <p class="logo-tagline">Portal</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <h1 class="hero-headline">Your digital presence, in one place.</h1>
+  <p class="hero-sub">View your reports, manage invoices, submit update requests and chat with your Lanevox team.</p>
+
+  <a href="https://lanevox-portal-production.up.railway.app/login" target="_blank" rel="noopener" class="btn-portal">
+    Sign In to Portal &rarr;
+  </a>
+  <p class="btn-note">Access is by invitation only &mdash; contact hello@lanevox.com.au</p>
+
+  <div class="features">
+    <div class="feat">
+      <div class="feat-icon">↗</div>
+      <div class="feat-title">Performance Reports</div>
+      <div class="feat-desc">Monthly reports across all your active Lanevox services.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">≡</div>
+      <div class="feat-title">Invoices & Billing</div>
+      <div class="feat-desc">View and track all invoices from your Lanevox account.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">✦</div>
+      <div class="feat-title">AI Assistant</div>
+      <div class="feat-desc">Ask questions about your services, get help writing briefs.</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span class="footer-copy">&copy; 2026 Lanevox Consulting Group &mdash; Gold Coast, QLD</span>
+  <a href="mailto:hello@lanevox.com.au" class="footer-link">hello@lanevox.com.au</a>
+</footer>
+
+</body>
+</html>
